@@ -1086,3 +1086,14 @@ function updateGoalSimulation() {
     }
   }
 }
+
+/* ==========================================================================
+   07. FAQ Accordion Interaction
+   ========================================================================== */
+function toggleFaq(item) {
+  const wasActive = item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+  if (!wasActive) {
+    item.classList.add('active');
+  }
+}

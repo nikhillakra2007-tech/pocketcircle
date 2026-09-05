@@ -20,7 +20,7 @@
 ### 1. Editorial Landing Experience
 *Clean, negative-space typography and interactive spend & goal simulation.*
 
-![PocketCircle Landing Page](screenshots/01-landing-hero.png)
+![PocketCircle Landing Page](screenshots/01-landing-full.png)
 
 ---
 

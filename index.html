@@ -35,10 +35,8 @@
       <nav class="nav-links" id="landing-nav" aria-label="Main Navigation">
         <a href="#spend-tracker" class="nav-link">Spend Tracker</a>
         <a href="#goal-simulator" class="nav-link">Goal Simulator</a>
-        <a href="#flowchart-section" class="nav-link">System Flow</a>
-        <a href="#dilemma" class="nav-link">The Dilemma</a>
-        <a href="#matrix" class="nav-link">Architecture</a>
-        <a href="#auth" class="nav-link" onclick="navigateTo('auth')">Sign In</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
       <!-- Dashboard Context Nav (Visible on Dashboard) -->
@@ -109,26 +107,20 @@
     </section>
 
     <!-- =========================================================================
-         LANDING PAGE FEATURE SHOWCASE 1 & 2
+         LANDING PAGE FEATURE SECTIONS (MINIMAL 2-SECTION ARCHITECTURE)
          1. Spend Tracker: Previous vs. Current Month Comparison Graph
          2. Interactive Goal Timeline Simulator
          ========================================================================= -->
     <section class="section landing-showcase-section" id="featured-engines">
       <div class="content-wrapper">
 
-        <!-- FEATURE 01: Spend Tracker Comparison Graph -->
+        <!-- SECTION 01: Spend Tracker Comparison Graph -->
         <div class="showcase-feature-block" id="spend-tracker">
-          <div class="feature-kicker-row">
-            <span class="feature-pill-badge">FEATURE SHOWCASE 01 · SPEND TRACKER</span>
-            <span class="editorial-kicker">MONTH-OVER-MONTH VARIANCE</span>
-          </div>
-
           <div class="feature-headline-group">
-            <h2 class="feature-main-title">
-              Dynamic Spend Tracker: <span class="editorial-italic">Previous vs. Current Month</span>
-            </h2>
+            <span class="feature-minimal-badge">01 / SPEND COMPARISON</span>
+            <h2 class="feature-main-title">Monthly Spend Comparison</h2>
             <p class="feature-main-desc">
-              Visualise exactly where pocket money and first-paycheck cash goes. Compare previous month burn against your current run-rate with dynamic seed variations.
+              Track daily burn rate against last month to protect your student runway.
             </p>
           </div>
 
@@ -138,15 +130,15 @@
             <div class="st-top-strip">
               <div class="st-metrics-group">
                 <div class="st-metric-box">
-                  <span class="st-metric-label">This Month (May)</span>
+                  <span class="st-metric-label">Current Month</span>
                   <span class="st-metric-value mono-text" id="st-curr-total">₹14,850</span>
                 </div>
                 <div class="st-metric-box">
-                  <span class="st-metric-label">Previous Month (April)</span>
-                  <span class="st-metric-value mono-text" style="color: var(--text-secondary);" id="st-prev-total">₹18,200</span>
+                  <span class="st-metric-label">Previous Month</span>
+                  <span class="st-metric-value mono-text" style="color: var(--text-muted);" id="st-prev-total">₹18,200</span>
                 </div>
                 <div class="st-metric-box">
-                  <span class="st-metric-label">Spend Variance</span>
+                  <span class="st-metric-label">Net Variance</span>
                   <span class="st-variance-badge" id="st-variance-badge">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
                     <span id="st-variance-val">-18.4% (₹3,350 Saved)</span>
@@ -158,11 +150,11 @@
               <div class="st-legend">
                 <div class="st-legend-item">
                   <span class="st-legend-line-dashed"></span>
-                  <span>April (Previous)</span>
+                  <span>Previous</span>
                 </div>
                 <div class="st-legend-item">
                   <span class="st-legend-line-solid"></span>
-                  <strong style="color: var(--accent-terracotta);">May (Current)</strong>
+                  <strong style="color: var(--accent-terracotta);">Current</strong>
                 </div>
               </div>
             </div>
@@ -170,20 +162,20 @@
             <!-- Controls: Variations & Categories -->
             <div class="st-controls-bar">
               <div class="st-variation-cluster">
-                <span class="st-ctrl-label">Seed Scenarios:</span>
-                <button class="seed-chip-btn active" data-seed="normal" onclick="setSpendSeed('normal')">Campus Normal</button>
-                <button class="seed-chip-btn" data-seed="exam" onclick="setSpendSeed('exam')">Exam Period (Low Outing)</button>
-                <button class="seed-chip-btn" data-seed="festive" onclick="setSpendSeed('festive')">Festive / Trips Surge</button>
+                <span class="st-ctrl-label">Scenarios:</span>
+                <button class="seed-chip-btn active" data-seed="normal" onclick="setSpendSeed('normal')">Normal</button>
+                <button class="seed-chip-btn" data-seed="exam" onclick="setSpendSeed('exam')">Exams</button>
+                <button class="seed-chip-btn" data-seed="festive" onclick="setSpendSeed('festive')">Trip / Fest</button>
                 <button class="randomize-seed-btn" onclick="randomizeSpendData()" title="Apply dynamic random seed variance">
-                  <span>🎲 Randomize Seed Variance</span>
+                  <span>🎲 Randomize</span>
                 </button>
               </div>
 
               <div class="st-variation-cluster">
-                <span class="st-ctrl-label">Category:</span>
+                <span class="st-ctrl-label">Filter:</span>
                 <button class="seed-chip-btn active" data-cat="all" onclick="setSpendCat('all')">All Outflows</button>
                 <button class="seed-chip-btn" data-cat="food" onclick="setSpendCat('food')">Food & Mess</button>
-                <button class="seed-chip-btn" data-cat="social" onclick="setSpendCat('social')">Outings & Late Night</button>
+                <button class="seed-chip-btn" data-cat="social" onclick="setSpendCat('social')">Outings</button>
               </div>
             </div>
 
@@ -192,7 +184,7 @@
               <svg class="st-chart-svg" viewBox="0 0 900 240" preserveAspectRatio="none" id="st-svg-element">
                 <defs>
                   <linearGradient id="terracotta-gradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#C06848" stop-opacity="0.38"/>
+                    <stop offset="0%" stop-color="#C06848" stop-opacity="0.25"/>
                     <stop offset="100%" stop-color="#C06848" stop-opacity="0.0"/>
                   </linearGradient>
                 </defs>
@@ -242,19 +234,13 @@
           </div>
         </div>
 
-        <!-- FEATURE 02: Interactive Goal Simulator -->
+        <!-- SECTION 02: Interactive Goal Simulator -->
         <div class="showcase-feature-block" id="goal-simulator">
-          <div class="feature-kicker-row">
-            <span class="feature-pill-badge">FEATURE SHOWCASE 02 · GOAL SIMULATOR</span>
-            <span class="editorial-kicker">DASHBOARD CORE FEATURE PREVIEW</span>
-          </div>
-
           <div class="feature-headline-group">
-            <h2 class="feature-main-title">
-              Life Goal Simulator: <span class="editorial-italic">What is your goal & when will you hit it?</span>
-            </h2>
+            <span class="feature-minimal-badge">02 / GOAL PROJECTION</span>
+            <h2 class="feature-main-title">Milestone & Goal Projection</h2>
             <p class="feature-main-desc">
-              Test realistic milestone timelines. See the compounding difference when recovered roommate debts are automatically swept into your goal vault.
+              Calculate completion dates and see how roommate debt auto-sweeps accelerate your target.
             </p>
           </div>
 
@@ -264,73 +250,48 @@
               <!-- Left Column: Inputs & Preset Chips -->
               <div class="gs-inputs-column">
                 <div>
-                  <label class="form-label" style="margin-bottom: 6px; display: block;">Select a Milestone or Pick Custom:</label>
+                  <label class="form-label" style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.05em;">Milestone Presets</label>
                   <div class="gs-chips-wrap">
-                    <button class="goal-chip active" data-name="M3 MacBook Air" data-amount="82000" data-saved="22000" data-contrib="5000" onclick="selectGoalPreset(this)">
-                      <span>💻</span> M3 MacBook Air
-                    </button>
-                    <button class="goal-chip" data-name="Goa Semester Break" data-amount="18000" data-saved="4000" data-contrib="2500" onclick="selectGoalPreset(this)">
-                      <span>🏖️</span> Goa Semester Trip
-                    </button>
-                    <button class="goal-chip" data-name="3-Month Emergency Shield" data-amount="36000" data-saved="12000" data-contrib="3000" onclick="selectGoalPreset(this)">
-                      <span>🛡️</span> Emergency Cushion
-                    </button>
-                    <button class="goal-chip" data-name="First Electric Scooter" data-amount="65000" data-saved="15000" data-contrib="4000" onclick="selectGoalPreset(this)">
-                      <span>🛵</span> First EV Scooter
-                    </button>
-                    <button class="goal-chip" data-name="Custom Target" data-amount="50000" data-saved="10000" data-contrib="3500" onclick="selectGoalPreset(this)">
-                      <span>✨</span> Custom Goal
-                    </button>
+                    <button class="goal-chip active" data-name="M3 MacBook Air" data-amount="82000" data-saved="22000" data-contrib="5000" onclick="selectGoalPreset(this)">MacBook Air</button>
+                    <button class="goal-chip" data-name="Goa Semester Break" data-amount="18000" data-saved="4000" data-contrib="2500" onclick="selectGoalPreset(this)">Goa Trip</button>
+                    <button class="goal-chip" data-name="3-Month Emergency Shield" data-amount="36000" data-saved="12000" data-contrib="3000" onclick="selectGoalPreset(this)">Emergency Fund</button>
+                    <button class="goal-chip" data-name="First Electric Scooter" data-amount="65000" data-saved="15000" data-contrib="4000" onclick="selectGoalPreset(this)">EV Scooter</button>
+                    <button class="goal-chip" data-name="Custom Target" data-amount="50000" data-saved="10000" data-contrib="3500" onclick="selectGoalPreset(this)">Custom</button>
                   </div>
                 </div>
 
                 <!-- Slider 1: Target Amount -->
                 <div class="gs-slider-card">
                   <div class="gs-slider-header">
-                    <span class="gs-slider-label">Target Milestone Amount</span>
-                    <span class="gs-slider-val" id="gs-target-display">₹82,000</span>
+                    <span class="gs-slider-label">Target Milestone</span>
+                    <span class="gs-slider-val mono-text" id="gs-target-display">₹82,000</span>
                   </div>
                   <input type="range" class="minimal-slider" id="gs-target-slider" min="10000" max="150000" step="2000" value="82000" oninput="updateGoalSimulation()">
-                  <div class="slider-ticks">
-                    <span>₹10,000</span>
-                    <span>₹75,000</span>
-                    <span>₹1,50,000</span>
-                  </div>
                 </div>
 
                 <!-- Slider 2: Current Saved -->
                 <div class="gs-slider-card">
                   <div class="gs-slider-header">
                     <span class="gs-slider-label">Already Saved in Vault</span>
-                    <span class="gs-slider-val" id="gs-saved-display">₹22,000</span>
+                    <span class="gs-slider-val mono-text" id="gs-saved-display">₹22,000</span>
                   </div>
                   <input type="range" class="minimal-slider" id="gs-saved-slider" min="0" max="70000" step="1000" value="22000" oninput="updateGoalSimulation()">
-                  <div class="slider-ticks">
-                    <span>₹0</span>
-                    <span>₹35,000</span>
-                    <span>₹70,000</span>
-                  </div>
                 </div>
 
                 <!-- Slider 3: Monthly Savings Contribution -->
                 <div class="gs-slider-card">
                   <div class="gs-slider-header">
                     <span class="gs-slider-label">Monthly Savings Commitment</span>
-                    <span class="gs-slider-val" id="gs-contrib-display">₹5,000 / mo</span>
+                    <span class="gs-slider-val mono-text" id="gs-contrib-display">₹5,000 / mo</span>
                   </div>
                   <input type="range" class="minimal-slider" id="gs-contrib-slider" min="1000" max="15000" step="500" value="5000" oninput="updateGoalSimulation()">
-                  <div class="slider-ticks">
-                    <span>₹1,000</span>
-                    <span>₹7,500</span>
-                    <span>₹15,000</span>
-                  </div>
                 </div>
 
                 <!-- Campus Auto-Sweep Speedup Switch -->
                 <div class="gs-auto-sweep-box">
                   <div class="gs-switch-label">
-                    <strong>Include Campus Flatmate Auto-Sweep</strong>
-                    <span>Automatically sweep +₹1,200/mo from settled debts into this vault</span>
+                    <strong>Auto-Sweep Roommate Debts</strong>
+                    <span>Channels +₹1,200/mo recovered dues straight into this vault</span>
                   </div>
                   <label class="custom-toggle">
                     <input type="checkbox" id="gs-sweep-toggle" checked onchange="updateGoalSimulation()">
@@ -344,55 +305,47 @@
                 <div class="gs-result-card">
                   <div class="gs-result-top">
                     <div class="gs-time-banner">
-                      <span class="gs-time-label">Estimated Time to Achieve</span>
+                      <span class="gs-time-label">Estimated Timeline</span>
                       <div class="gs-time-number mono-text" id="gs-result-months">10 Months</div>
-                      <div class="gs-date-target" id="gs-result-date">Target Date: March 2027</div>
+                      <div class="gs-date-target" id="gs-result-date">Estimated: March 2027</div>
                     </div>
                     <div class="gs-speedup-badge" id="gs-speedup-pill">
-                      <span>🚀 3 Months Faster</span>
+                      <span>🚀 3 Mo Faster</span>
                     </div>
                   </div>
 
                   <!-- Milestone Progress Track -->
                   <div class="gs-progress-section">
                     <div class="gs-progress-header">
-                      <span>Milestone Progress</span>
-                      <strong class="mono-text" id="gs-progress-percent">27% Completed</strong>
+                      <span>Progress</span>
+                      <strong class="mono-text" id="gs-progress-percent">27%</strong>
                     </div>
                     <div class="gs-progress-bar-track">
                       <div class="gs-progress-fill" id="gs-progress-fill" style="width: 27%;"></div>
-                    </div>
-                    <div class="gs-milestone-ticks">
-                      <span>0% Start</span>
-                      <span>50% Halfway</span>
-                      <span>100% Achieved</span>
                     </div>
                   </div>
 
                   <!-- Numerical Breakdown -->
                   <div class="gs-breakdown-list">
                     <div class="gs-breakdown-row">
-                      <span>Remaining Goal Gap:</span>
-                      <strong id="gs-gap-val">₹60,000</strong>
+                      <span>Remaining Gap:</span>
+                      <strong class="mono-text" id="gs-gap-val">₹60,000</strong>
                     </div>
                     <div class="gs-breakdown-row">
-                      <span>Effective Inflow Rate:</span>
-                      <strong id="gs-rate-val">₹6,200 / month</strong>
+                      <span>Monthly Inflow:</span>
+                      <strong class="mono-text" id="gs-rate-val">₹6,200 / mo</strong>
                     </div>
                     <div class="gs-breakdown-row">
-                      <span>Flatmate Sweeps Contribution:</span>
-                      <strong class="text-emerald" id="gs-sweeps-val">+₹12,000 total</strong>
+                      <span>Roommate Sweeps:</span>
+                      <strong class="mono-text text-emerald" id="gs-sweeps-val">+₹12,000 total</strong>
                     </div>
                   </div>
-                </div>
 
-                <!-- Action CTA Card -->
-                <div style="background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 22px 24px; text-align: center;">
-                  <span class="editorial-kicker" style="margin-bottom: 6px;">READY TO LOCK YOUR GOAL?</span>
-                  <h4 style="font-size: 1.08rem; font-weight: 600; margin-bottom: 12px;">Track this goal inside Section 09 of the Dashboard</h4>
-                  <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openSectionDetail('09')">
-                    Open Goal Vault Workspace →
-                  </button>
+                  <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-hairline);">
+                    <button class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.85rem;" onclick="openSectionDetail('09')">
+                      Open Goal Vaults Workspace →
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -403,226 +356,175 @@
       </div>
     </section>
 
-    <!-- SECTION: Interactive System Flowchart -->
-    <section id="flowchart-section" class="section flowchart-section">
+    <!-- =========================================================================
+         SECTION 03: THE 3-STEP SYSTEM FLOW
+         ========================================================================= -->
+    <section class="section flow-minimal-section" id="how-it-works">
       <div class="content-wrapper">
-        <div class="section-header-compact">
-          <div class="section-number">01</div>
-          <div class="section-title-wrap">
-            <h2 class="section-title">The Unified Campus-to-Career Flowchart</h2>
-            <p class="section-description">
-              How informal day-to-day student spends seamlessly evolve into structured wealth, without manual tracking or uncollected debts.
-            </p>
-          </div>
+        <div class="section-heading-minimal">
+          <span class="feature-minimal-badge">03 / SYSTEM FLOW</span>
+          <h2 class="feature-main-title">How PocketCircle Works</h2>
+          <p class="feature-main-desc">A closed financial loop connecting dorm expenses to personal wealth.</p>
         </div>
 
-        <div class="flowchart-container">
-          <div class="flow-track">
-            
-            <!-- Node 1 -->
-            <div class="flow-node">
-              <div class="node-badge">STEP 01</div>
-              <div class="node-icon">🥘</div>
-              <h3 class="node-title">Expense Incurred</h3>
-              <p class="node-desc">Log room rent, late-night Swiggy, or mess bills in 2 taps.</p>
-              <div class="node-meta">Informal capture</div>
+        <div class="flow-minimal-grid">
+          <div class="flow-card">
+            <div class="flow-card-top">
+              <span class="flow-num mono-text">01</span>
+              <span class="flow-icon">⚡</span>
             </div>
-
-            <div class="flow-arrow">
-              <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h30M24 1l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 class="flow-card-title">Instant Expense Split</h3>
+            <p class="flow-card-desc">Log room rent, late-night food, or mess dues. Split equally or custom per roommate with zero awkward math.</p>
+            <div class="flow-pill-wrap">
+              <span class="flow-pill">Automated Ledger</span>
             </div>
+          </div>
 
-            <!-- Node 2 -->
-            <div class="flow-node highlight">
-              <div class="node-badge">STEP 02</div>
-              <div class="node-icon">⚡</div>
-              <h3 class="node-title">Auto-Split & 1-Tap UPI</h3>
-              <p class="node-desc">System logs individual liability; flatmates settle via instant UPI dispatch.</p>
-              <div class="node-meta text-emerald">Zero VPA copying</div>
+          <div class="flow-card">
+            <div class="flow-card-top">
+              <span class="flow-num mono-text">02</span>
+              <span class="flow-icon">📱</span>
             </div>
-
-            <div class="flow-arrow">
-              <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h30M24 1l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 class="flow-card-title">1-Tap Direct UPI Settle</h3>
+            <p class="flow-card-desc">Pre-loaded dynamic UPI intents let roommates settle debts via GPay/PhonePe without copying VPAs or phone numbers.</p>
+            <div class="flow-pill-wrap">
+              <span class="flow-pill text-emerald">Zero VPA Copying</span>
             </div>
+          </div>
 
-            <!-- Node 3 -->
-            <div class="flow-node">
-              <div class="node-badge">STEP 03</div>
-              <div class="node-icon">🔮</div>
-              <h3 class="node-title">"What-If" Interception</h3>
-              <p class="node-desc">Pre-spend simulator tests if tonight's outing breaches mess runway.</p>
-              <div class="node-meta text-gold">Impulse protection</div>
+          <div class="flow-card">
+            <div class="flow-card-top">
+              <span class="flow-num mono-text">03</span>
+              <span class="flow-icon">🎯</span>
             </div>
-
-            <div class="flow-arrow">
-              <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h30M24 1l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 class="flow-card-title">Automated Goal Sweep</h3>
+            <p class="flow-card-desc">Settled flatmate dues automatically route straight into your prioritized Goal Vault instead of rotting as idle cash.</p>
+            <div class="flow-pill-wrap">
+              <span class="flow-pill text-gold">12.4% Yield Routing</span>
             </div>
-
-            <!-- Node 4 -->
-            <div class="flow-node highlight-green">
-              <div class="node-badge">STEP 04</div>
-              <div class="node-icon">🎯</div>
-              <h3 class="node-title">Closed-Loop Savings Sweep</h3>
-              <p class="node-desc">Recovered flatmate dues automatically sweep into target goal vaults.</p>
-              <div class="node-meta text-emerald">No idle cash rot</div>
-            </div>
-
-            <div class="flow-arrow">
-              <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h30M24 1l7 7-7 7" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-
-            <!-- Node 5 -->
-            <div class="flow-node">
-              <div class="node-badge">STEP 05</div>
-              <div class="node-icon">🏛️</div>
-              <h3 class="node-title">RBI Net Worth Sovereignty</h3>
-              <p class="node-desc">Consolidated balance sheet tracks assets vs EMIs, graduating to career wealth.</p>
-              <div class="node-meta">RBI Aggregator consent</div>
-            </div>
-
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: The Dilemma -->
-    <section id="dilemma" class="section dilemma-section">
+    <!-- =========================================================================
+         SECTION 04: THE CAMPUS ADVANTAGE (WHY POCKETCIRCLE)
+         ========================================================================= -->
+    <section class="section advantage-section" id="campus-edge">
       <div class="content-wrapper">
-        <div class="section-header-compact">
-          <div class="section-number">02</div>
-          <div class="section-title-wrap">
-            <h2 class="section-title">The Fractured Rupee of Young India</h2>
-            <p class="section-description">
-              Between messy WhatsApp bill-splitting groups and aggressive Buy-Now-Pay-Later ads, students and first-jobbers leak wealth before it begins.
-            </p>
-          </div>
+        <div class="section-heading-minimal">
+          <span class="feature-minimal-badge">04 / THE ADVANTAGE</span>
+          <h2 class="feature-main-title">Built for Campus Realities</h2>
+          <p class="feature-main-desc">Everyday student financial friction solved with clean intentionality.</p>
         </div>
 
-        <div class="dilemma-grid">
-          <article class="dilemma-card">
-            <div class="card-phase">Phase 01 · 18 to 22 Years</div>
-            <h3 class="card-title">The Campus Friction Trap</h3>
-            <p class="card-body">
-              Room rent, groceries, and late-night canteen runs tracked informally cause uncollected debts and social hesitation. Without proactive warnings, pocket money vanishes by the 18th of the month.
-            </p>
-            <ul class="dilemma-list">
-              <li>
-                <span class="bullet-tag">Awkward Dues</span>
-                Unsettled UPI requests trapped in WhatsApp chat history.
-              </li>
-              <li>
-                <span class="bullet-tag">Impulse Blindness</span>
-                No visibility into how tonight's party affects next week's mess dues.
-              </li>
-              <li>
-                <span class="bullet-tag">Zero Cushion</span>
-                86% of college students hold under ₹5,000 in emergency backup.
-              </li>
-            </ul>
-          </article>
+        <div class="advantage-grid">
+          <div class="adv-card">
+            <div class="adv-header">
+              <span class="adv-tag">RUNWAY PROTECTION</span>
+              <span class="adv-icon">🛡️</span>
+            </div>
+            <h3 class="adv-title">Safe Daily Burn Rate</h3>
+            <p class="adv-desc">Live calculation of your safe daily allowance protects against mid-month crunches before 2 AM impulse buys happen.</p>
+          </div>
 
-          <article class="dilemma-card highlight">
-            <div class="card-phase">Phase 02 · 23 to 35 Years</div>
-            <h3 class="card-title">The First-Salary Illusion</h3>
-            <p class="card-body">
-              The first paycheck arrives, followed immediately by gadget EMIs, security deposits, and lifestyle creep. Traditional banking apps display raw balance without mapping it to actual life goals.
-            </p>
-            <ul class="dilemma-list">
-              <li>
-                <span class="bullet-tag">Hidden Liabilities</span>
-                Gadget BNPL and student loan outflows never shown on one screen.
-              </li>
-              <li>
-                <span class="bullet-tag">Idle Capital Loss</span>
-                Hard-earned savings rot in 2.7% accounts losing value to real inflation.
-              </li>
-              <li>
-                <span class="bullet-tag">Advisory Void</span>
-                Wealth apps bombard with stock tips; nobody guides on life timelines.
-              </li>
-            </ul>
-          </article>
+          <div class="adv-card">
+            <div class="adv-header">
+              <span class="adv-tag">WEALTH COMPOUNDING</span>
+              <span class="adv-icon">📈</span>
+            </div>
+            <h3 class="adv-title">Zero Idle Cash Rot</h3>
+            <p class="adv-desc">Traditional payment apps leave settled balances stagnant. PocketCircle immediately puts recovered money to work in target vaults.</p>
+          </div>
+
+          <div class="adv-card">
+            <div class="adv-header">
+              <span class="adv-tag">DATA SOVEREIGNTY</span>
+              <span class="adv-icon">🏛️</span>
+            </div>
+            <h3 class="adv-title">RBI Account Aggregator</h3>
+            <p class="adv-desc">Institutional read-only sync consolidating bank balances and EMIs with bank-grade encryption and total privacy.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: Comparative Matrix -->
-    <section id="matrix" class="section matrix-section">
+    <!-- =========================================================================
+         SECTION 05: FREQUENTLY ASKED QUESTIONS
+         ========================================================================= -->
+    <section class="section faq-section" id="faq">
       <div class="content-wrapper">
-        <div class="section-header-compact">
-          <div class="section-number">03</div>
-          <div class="section-title-wrap">
-            <h2 class="section-title">The Competitive Architecture</h2>
-            <p class="section-description">
-              Why today's fragmented Indian fintech market leaves students and first-jobbers stranded.
-            </p>
-          </div>
+        <div class="section-heading-minimal">
+          <span class="feature-minimal-badge">05 / QUESTIONS & ANSWERS</span>
+          <h2 class="feature-main-title">Frequently Asked Questions</h2>
+          <p class="feature-main-desc">Quick answers about splits, UPI settlements, and security.</p>
         </div>
 
-        <div class="matrix-table-container">
-          <table class="matrix-table">
-            <thead>
-              <tr>
-                <th scope="col" class="th-feature">Capability & Job-To-Be-Done</th>
-                <th scope="col">Splitwise</th>
-                <th scope="col">INDmoney / Fi</th>
-                <th scope="col" class="th-pocketcircle">PocketCircle (Unified OS)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-feature">
-                  <strong>Informal Campus Bill Splitting</strong>
-                  <span>Auto-split flat rent, mess dues, groceries</span>
-                </td>
-                <td class="status-yes">Comprehensive</td>
-                <td class="status-no">Absent</td>
-                <td class="status-best">Native Split Module + 1-Tap UPI</td>
-              </tr>
-              <tr>
-                <td class="td-feature">
-                  <strong>Proactive "What-If" Impulse Check</strong>
-                  <span>Pre-spend simulation against upcoming bills</span>
-                </td>
-                <td class="status-no">Absent</td>
-                <td class="status-no">Absent</td>
-                <td class="status-best">Live Runway & Goal Delay Engine</td>
-              </tr>
-              <tr>
-                <td class="td-feature">
-                  <strong>Closed-Loop Split-to-Savings Sweep</strong>
-                  <span>Settled flatmate debts channeled to goal vaults</span>
-                </td>
-                <td class="status-no">Absent</td>
-                <td class="status-no">Absent</td>
-                <td class="status-best">Instant Goal Recalculation</td>
-              </tr>
-              <tr>
-                <td class="td-feature">
-                  <strong>RBI Account Aggregator Net Worth</strong>
-                  <span>Consent-driven consolidation of EMIs, bank, SIPs</span>
-                </td>
-                <td class="status-no">Absent</td>
-                <td class="status-partial">Salaried Only</td>
-                <td class="status-best">Tailored for 18–35 Cohort</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="faq-accordion">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>How does the 1-Tap UPI split settlement work?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>PocketCircle generates a dynamic UPI intent pre-loaded with the exact debt amount and recipient UPI ID. Tapping settle opens GPay, PhonePe, or Paytm with the amount pre-filled—eliminating manual VPA typing and screenshot confirmations.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>What is the Automatic Goal Sweep?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Whenever a roommate repays an expense you covered, that money is automatically routed towards your active Goal Vault (like an M3 MacBook, semester trip, or emergency fund) rather than sitting as idle balance in a wallet.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Do my roommates need to download the app to pay?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>No. You can share a quick PocketCircle settlement link via WhatsApp. Your flatmates can scan the dynamic UPI QR or tap the intent link to settle directly from their favorite UPI app without having an account.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Is my financial data secure under the RBI framework?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. PocketCircle integrates with RBI-regulated Account Aggregators (AA). All access is read-only, 256-bit encrypted, and can only be enabled with your explicit cryptographic consent.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>How is PocketCircle different from Splitwise or INDmoney?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Splitwise only tracks debts without budgeting or wealth building. Traditional wealth apps are designed for salaried professionals. PocketCircle bridges campus life and early career: unifying roommate splits, daily runway protection, and micro-savings into one calm ledger.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Bottom CTA -->
-    <section class="section manifesto-section">
+    <!-- =========================================================================
+         SECTION 06: BOTTOM CALL TO ACTION
+         ========================================================================= -->
+    <section class="section bottom-cta-section">
       <div class="content-wrapper">
-        <div class="manifesto-box">
-          <span class="editorial-kicker">EXPERIENCE THE PRODUCT</span>
-          <h2 class="manifesto-quote">
-            "A generation that hits its life goals on time — <span class="editorial-italic">not by accident.</span>"
-          </h2>
-          <div class="hero-actions" style="justify-content: center;">
-            <button class="btn-primary" onclick="navigateTo('auth')">Sign In with Google</button>
-            <button class="btn-secondary" onclick="demoDirectLogin()">Open 12-Section Dashboard</button>
+        <div class="bottom-cta-card">
+          <span class="feature-minimal-badge">GET STARTED TODAY</span>
+          <h2 class="bottom-cta-headline">Take control of your campus cashflow.</h2>
+          <p class="bottom-cta-desc">Start splitting with flatmates, tracking daily runway, and building your first wealth vaults.</p>
+          <div class="bottom-cta-actions">
+            <button class="btn-primary" onclick="navigateTo('auth')">Launch Interactive Cockpit →</button>
           </div>
         </div>
       </div>
