@@ -9,15 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hashchange', handleUrlRouting);
   initSpendTracker();
   initGoalSimulator();
+  initDesignAccessibility();
 });
 
 /* ==========================================================================
-   01. Theme Engine (Warm Skinnish Minimalist)
+   01. Theme Engine (Emerald & Navy)
    ========================================================================== */
 function initTheme() {
   const htmlRoot = document.documentElement;
-  htmlRoot.setAttribute('data-theme', 'warm-minimal');
-  localStorage.setItem('pocketcircle-theme', 'warm-minimal');
+  htmlRoot.setAttribute('data-theme', 'emerald-navy');
+  localStorage.setItem('pocketcircle-theme', 'emerald-navy');
 }
 
 /* ==========================================================================
@@ -38,6 +39,10 @@ function handleUrlRouting() {
     openSectionDetail(secId);
   } else {
     renderView('landing');
+    const section = document.getElementById(hash);
+    if (section && hash !== 'landing') {
+      requestAnimationFrame(() => section.scrollIntoView({ behavior: prefersReducedMotion() ? 'instant' : 'smooth' }));
+    }
   }
 }
 
@@ -65,7 +70,7 @@ function renderView(viewName) {
     }
   });
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'instant' : 'smooth' });
 
   // Update Header Context
   if (viewName === 'dashboard') {
@@ -1092,8 +1097,48 @@ function updateGoalSimulation() {
    ========================================================================== */
 function toggleFaq(item) {
   const wasActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.faq-item').forEach(el => {
+    el.classList.remove('active');
+    el.setAttribute('aria-expanded', 'false');
+  });
   if (!wasActive) {
     item.classList.add('active');
+    item.setAttribute('aria-expanded', 'true');
   }
+}
+
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function initDesignAccessibility() {
+  document.querySelectorAll('.faq-item, .section-card').forEach(item => {
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    if (item.classList.contains('faq-item')) item.setAttribute('aria-expanded', 'false');
+    item.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        item.click();
+      }
+    });
+  });
+  document.querySelectorAll('.gs-slider-card').forEach(card => {
+    card.querySelector('input').setAttribute('aria-label', card.querySelector('.gs-slider-label').textContent);
+  });
+  document.getElementById('gs-sweep-toggle').setAttribute('aria-label', 'Auto-Sweep Roommate Debts');
+
+  // A consistent line-icon set replaces decorative emoji without changing copy.
+  const iconPaths = [
+    '<rect x="3" y="5" width="18" height="15" rx="3"/><path d="M8 3v4m8-4v4M3 10h18m-13 4h3m-3 3h7"/>',
+    '<rect x="6" y="2" width="12" height="20" rx="3"/><path d="m9 11 2 2 4-4m-4 9h2"/>',
+    '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>',
+    '<path d="M3 20h18M4 15l5-5 4 3 7-8m-6 0h6v6"/>',
+    '<path d="m3 8 9-5 9 5H3Zm2 3v7m5-7v7m4-7v7m5-7v7M3 21h18"/>'
+  ];
+  document.querySelectorAll('.flow-icon, .adv-icon').forEach((icon, index) => {
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${iconPaths[index % iconPaths.length]}</svg>`;
+  });
 }
