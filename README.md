@@ -3,7 +3,7 @@
 > **The Campus-to-Career Financial OS**  
 > Uniting informal dorm room bill splitting, proactive spend simulations, and goal-driven wealth building into one calm, intelligent ledger.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-finroq.vercel.app-10b981?style=for-the-badge&logo=vercel)](https://finroq.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-finroq--app.vercel.app-10b981?style=for-the-badge&logo=vercel)](https://finroq-app.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-nikhillakra2007--tech%2Fpocketcircle-181717?style=for-the-badge&logo=github)](https://github.com/nikhillakra2007-tech/pocketcircle)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
@@ -11,7 +11,8 @@
 
 ## 🌐 Live Production Deployment
 **Access the live application here:**  
-👉 **[https://finroq.vercel.app](https://finroq.vercel.app)**
+👉 **[https://finroq-app.vercel.app](https://finroq-app.vercel.app)**  
+*Mirror / Alternate Domain:* **[https://finroq-os.vercel.app](https://finroq-os.vercel.app)**
 
 ---
 
