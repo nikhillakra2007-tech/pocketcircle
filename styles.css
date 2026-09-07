@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PocketCircle — Senior UX Design System & Style Architecture
+   Finroq — Senior UX Design System & Style Architecture
    Aesthetic: Warm Skinnish Linen, Cashmere & Terracotta Editorial Minimalism
    ========================================================================== */
 
@@ -621,6 +621,7 @@ body {
   font-weight: 600;
 }
 
+.th-finroq,
 .th-pocketcircle {
   color: var(--text-primary) !important;
   background: var(--bg-pill) !important;

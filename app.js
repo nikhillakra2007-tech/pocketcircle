@@ -1,5 +1,5 @@
 /**
- * PocketCircle — Modern 3-Part Architecture & 12-Section Interactive Engine
+ * Finroq — Modern 3-Part Architecture & 12-Section Interactive Engine
  * Parts: 1. Landing Page | 2. Auth Page (Google Sign-In) | 3. Master 12-Section Dashboard
  */
 
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
   const htmlRoot = document.documentElement;
   htmlRoot.setAttribute('data-theme', 'emerald-navy');
-  localStorage.setItem('pocketcircle-theme', 'emerald-navy');
+  localStorage.setItem('finroq-theme', 'emerald-navy');
 }
 
 /* ==========================================================================
    02. Single-Page Navigation & Routing
    ========================================================================== */
-let currentUser = localStorage.getItem('pocketcircle-user') ? JSON.parse(localStorage.getItem('pocketcircle-user')) : null;
+let currentUser = (localStorage.getItem('finroq-user') || localStorage.getItem('pocketcircle-user')) ? JSON.parse(localStorage.getItem('finroq-user') || localStorage.getItem('pocketcircle-user')) : null;
 
 function handleUrlRouting() {
   const hash = window.location.hash.replace('#', '') || 'landing';
@@ -101,7 +101,7 @@ function handleGoogleSignIn() {
     flat: 'Flat 402, Nilgiri Hostel',
     role: 'Student & Co-Tenant'
   };
-  localStorage.setItem('pocketcircle-user', JSON.stringify(currentUser));
+  localStorage.setItem('finroq-user', JSON.stringify(currentUser));
   navigateTo('dashboard');
 }
 
@@ -114,7 +114,7 @@ function handleEmailSignIn() {
     flat: 'Campus Hostel Flat 402',
     role: 'Student'
   };
-  localStorage.setItem('pocketcircle-user', JSON.stringify(currentUser));
+  localStorage.setItem('finroq-user', JSON.stringify(currentUser));
   navigateTo('dashboard');
 }
 
@@ -123,6 +123,7 @@ function demoDirectLogin() {
 }
 
 function signOutUser() {
+  localStorage.removeItem('finroq-user');
   localStorage.removeItem('pocketcircle-user');
   currentUser = null;
   navigateTo('landing');
@@ -196,7 +197,7 @@ const sectionsData = {
             <span class="editorial-kicker">AUTOMATIC SWEEP FLOW</span>
             <h4 style="font-size: 1.2rem; font-weight: 600; margin: 8px 0 12px;">Where Settled Dues Go</h4>
             <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-              Unlike traditional apps where settled money rots as idle payment balance, PocketCircle automatically routes recovered dues straight into your prioritized Goal Vault.
+              Unlike traditional apps where settled money rots as idle payment balance, Finroq automatically routes recovered dues straight into your prioritized Goal Vault.
             </p>
           </div>
           <div style="padding: 18px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-hairline); margin: 20px 0;">
@@ -290,7 +291,7 @@ const sectionsData = {
             </div>
           </div>
           <div style="padding: 16px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-hairline); font-size: 0.85rem; color: var(--text-secondary);">
-            💡 <strong>Smart Alarm:</strong> If your daily spend exceeds ₹350 for 2 consecutive days, PocketCircle will trigger an automatic burn freeze alert.
+            💡 <strong>Smart Alarm:</strong> If your daily spend exceeds ₹350 for 2 consecutive days, Finroq will trigger an automatic burn freeze alert.
           </div>
         </div>
 
@@ -335,7 +336,7 @@ const sectionsData = {
             🏁
           </div>
           <div class="mono-text" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
-            UPI ID: pocketcircle.flat402@axisbank
+            UPI ID: finroq.flat402@axisbank
           </div>
           <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="alert('UPI Intent Launched: Simulating instant settlement receipt!')">
             Simulate 1-Tap UPI Intent Dispatch
@@ -515,7 +516,7 @@ const sectionsData = {
       <div class="workspace-hero">
         <span class="workspace-badge">PILLAR 09 · GOAL ENGINE</span>
         <h2 class="workspace-title">Micro-Savings Goal Engine</h2>
-        <p class="workspace-sub">Rather than asking 'How much can you save?', PocketCircle asks 'What do you want in life, and by when?'</p>
+        <p class="workspace-sub">Rather than asking 'How much can you save?', Finroq asks 'What do you want in life, and by when?'</p>
       </div>
       <div class="vaults-grid">
         <div class="vault-card">

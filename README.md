@@ -1,9 +1,9 @@
-# PocketCircle 🪙⭕
+# Finroq 🪙⭕
 
 > **The Campus-to-Career Financial OS**  
 > Uniting informal dorm room bill splitting, proactive spend simulations, and goal-driven wealth building into one calm, intelligent ledger.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-pocketcircle.vercel.app-10b981?style=for-the-badge&logo=vercel)](https://pocketcircle.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-finroq.vercel.app-10b981?style=for-the-badge&logo=vercel)](https://finroq.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-nikhillakra2007--tech%2Fpocketcircle-181717?style=for-the-badge&logo=github)](https://github.com/nikhillakra2007-tech/pocketcircle)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
@@ -11,7 +11,7 @@
 
 ## 🌐 Live Production Deployment
 **Access the live application here:**  
-👉 **[https://pocketcircle.vercel.app](https://pocketcircle.vercel.app)**
+👉 **[https://finroq.vercel.app](https://finroq.vercel.app)**
 
 ---
 
@@ -20,25 +20,25 @@
 ### 1. Editorial Landing Experience
 *Clean, negative-space typography and interactive spend & goal simulation.*
 
-![PocketCircle Landing Page](screenshots/01-landing-full.png)
+![Finroq Landing Page](screenshots/01-landing-full.png)
 
 ---
 
 ### 2. Master 12-Pillar Financial Operating System
 *Interactive operational cockpit covering roommate splits, daily runway, sweep vaults, and net worth.*
 
-![PocketCircle Master Cockpit](screenshots/02-master-dashboard.png)
+![Finroq Master Cockpit](screenshots/02-master-dashboard.png)
 
 ---
 
 ### 3. Identity Protocol & Account Aggregator
 *Frictionless authentication built for students and early earners with instant sandbox bypass.*
 
-![PocketCircle Identity Protocol](screenshots/03-auth-protocol.png)
+![Finroq Identity Protocol](screenshots/03-auth-protocol.png)
 
 ---
 
-## 🎯 The Dilemma: Why PocketCircle?
+## 🎯 The Dilemma: Why Finroq?
 
 Traditional banking and finance applications are built for corporate executives moving money between corporate accounts. Existing consumer apps suffer from clear structural limitations:
 
@@ -46,11 +46,11 @@ Traditional banking and finance applications are built for corporate executives 
 | :--- | :--- | :--- |
 | **Splitwise** | Informal group splits | Money sits idle; zero proactive budgeting or wealth building. |
 | **INDmoney / Fi** | Wealth tracking & investments | Heavy, formal, detached from day-to-day campus roommate realities. |
-| **PocketCircle** | **Unified Campus OS** | **Bridges dorm bills + daily spend runway + automated investment vaults in one loop.** |
+| **Finroq** | **Unified Campus OS** | **Bridges dorm bills + daily spend runway + automated investment vaults in one loop.** |
 
 ---
 
-## 🏛️ The 12 Pillars of PocketCircle
+## 🏛️ The 12 Pillars of Finroq
 
 1. **Roommate Splitter**: Auto-split room rent, groceries, and WiFi with zero awkward money talks.
 2. **Impulse Pre-Spend Check**: Proactively simulate whether a late-night ₹1,800 purchase breaches your monthly safety threshold.
